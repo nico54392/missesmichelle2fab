@@ -1,3 +1,27 @@
+:root {
+  --bg: #a3b18a;        /* sage background */
+  --window: #f2efe7;    /* beige panels */
+  --accent: #5c6b4f;    /* deep sage */
+  --text: #1f2421;      /* dark ink */
+  --muted: #3d4a3f;
+  --shadow: #2f3a2f;
+}
+
+/* =========================
+   GLOBAL
+========================= */
+body {
+  margin: 0;
+  background: var(--bg);
+  font-family: "Courier New", monospace;
+  color: var(--text);
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* =========================
+   TIMELINE CONTAINER
+========================= */
 #timeline {
   width: 100%;
   height: 100vh;
@@ -6,7 +30,9 @@
   box-sizing: border-box;
 }
 
-/* each month is a full "panel" */
+/* =========================
+   MONTH PANEL
+========================= */
 .month {
   margin-bottom: 80px;
   padding: 20px;
@@ -15,26 +41,51 @@
   box-shadow: 6px 6px 0 var(--shadow);
 }
 
-/* header section */
+/* MONTH HEADER */
 .month-header {
   border-bottom: 2px solid var(--accent);
   margin-bottom: 20px;
+  padding-bottom: 10px;
 }
 
-/* split layout */
+.month-header h2 {
+  margin: 0;
+}
+
+.month-header p {
+  margin: 5px 0 0;
+  color: var(--muted);
+}
+
+/* =========================
+   MONTH BODY LAYOUT
+========================= */
 .month-body {
   display: flex;
   gap: 20px;
 }
 
-/* left memory column */
+/* =========================
+   MEMORY COLUMN (LEFT)
+========================= */
 .memory {
   flex: 1;
   padding: 10px;
   border-right: 2px dashed var(--accent);
 }
 
-/* right game column */
+.memory h3 {
+  margin-top: 0;
+}
+
+.memory ul {
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+/* =========================
+   GAMES COLUMN (RIGHT)
+========================= */
 .games {
   flex: 1;
   padding: 10px;
@@ -43,8 +94,118 @@
   gap: 10px;
 }
 
-/* reuse your icon style but smaller if needed */
-.games .icon {
+.games h3 {
+  width: 100%;
+  margin-top: 0;
+}
+
+/* =========================
+   GAME ICONS (REUSED APPS)
+========================= */
+.icon {
   width: 90px;
   height: 90px;
+  background: var(--window);
+  border: 2px solid var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  font-size: 12px;
+  color: var(--text);
+  transition: transform 0.1s ease, background 0.1s ease;
+  box-shadow: 3px 3px 0 var(--shadow);
+}
+
+.icon:hover {
+  transform: scale(1.05);
+  background: #e8e3d8;
+}
+
+/* =========================
+   FLOATING WINDOW SYSTEM
+========================= */
+#window {
+  position: absolute;
+  top: 80px;
+  right: 80px;
+  width: 420px;
+  height: 320px;
+  background: var(--window);
+  border: 2px solid var(--accent);
+  display: none;
+  flex-direction: column;
+  box-shadow: 6px 6px 0 var(--shadow);
+  z-index: 999;
+}
+
+/* TITLE BAR */
+#titlebar {
+  height: 32px;
+  background: var(--accent);
+  color: var(--window);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  cursor: move;
+  user-select: none;
+  font-size: 12px;
+}
+
+/* CLOSE BUTTON */
+#close {
+  cursor: pointer;
+  color: var(--window);
+  font-weight: bold;
+}
+
+/* WINDOW CONTENT */
+#content {
+  flex: 1;
+  padding: 12px;
+  font-size: 13px;
+  overflow: auto;
+  color: var(--text);
+}
+
+/* =========================
+   BUTTONS
+========================= */
+button {
+  background: var(--accent);
+  color: var(--window);
+  border: none;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-family: inherit;
+  margin-top: 10px;
+  box-shadow: 2px 2px 0 var(--shadow);
+}
+
+button:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 var(--shadow);
+}
+
+/* =========================
+   TEXTAREA (NOTES APP)
+========================= */
+textarea {
+  width: 100%;
+  height: 200px;
+  background: #ffffff;
+  border: 1px solid var(--accent);
+  color: var(--text);
+  font-family: inherit;
+  padding: 8px;
+  resize: none;
+}
+
+/* =========================
+   PIXEL FEEL
+========================= */
+* {
+  image-rendering: pixelated;
 }
