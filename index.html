@@ -1,103 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Michelle ❤️</title>
-<style>
-body{font-family:Georgia,serif;background:#fff8fb;color:#333;max-width:1000px;margin:auto;padding:20px}
-h1,h2{color:#c24a7a}
-.card{background:white;padding:20px;margin:20px 0;border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,.08)}
-.locked{opacity:.55}
-.badge{display:inline-block;margin:4px;padding:8px 12px;border-radius:999px;background:#f3d7e4}
-.photo{height:250px;border:2px dashed #ccc;display:flex;align-items:center;justify-content:center}
-button{padding:10px 16px;border:none;border-radius:10px;cursor:pointer}
-#countdown{font-size:1.2em}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pixel Desktop</title>
+
+  <style>
+    :root{
+      --bg: #1e1e2a;
+      --window: #2b2b3c;
+      --accent: #8fbcd4;
+      --text: #e6e6e6;
+      --muted: #a0a0b2;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      font-family: "Courier New", monospace;
+      color: var(--text);
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Desktop */
+    #desktop {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(6, 120px);
+      grid-auto-rows: 120px;
+      gap: 20px;
+      padding: 30px;
+      align-content: start;
+    }
+
+    .icon {
+      width: 100px;
+      height: 100px;
+      background: var(--window);
+      border: 2px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      user-select: none;
+      text-align: center;
+      font-size: 12px;
+      transition: transform 0.1s;
+    }
+
+    .icon:hover {
+      transform: scale(1.05);
+      background: #35354a;
+    }
+
+    /* Window system */
+    #window {
+      position: absolute;
+      top: 80px;
+      right: 80px;
+      width: 400px;
+      height: 300px;
+      background: var(--window);
+      border: 2px solid var(--accent);
+      display: none;
+      flex-direction: column;
+    }
+
+    #titlebar {
+      height: 30px;
+      background: #20202c;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 10px;
+      cursor: move;
+      font-size: 12px;
+    }
+
+    #close {
+      cursor: pointer;
+      color: var(--accent);
+    }
+
+    #content {
+      flex: 1;
+      padding: 10px;
+      font-size: 13px;
+      color: var(--muted);
+      overflow: auto;
+    }
+
+    button {
+      background: var(--accent);
+      border: none;
+      padding: 6px 10px;
+      cursor: pointer;
+      font-family: inherit;
+      margin-top: 10px;
+    }
+  </style>
 </head>
+
 <body>
-<h1>❤️ Michelle & Nico ❤️</h1>
-<p>A journey that unfolds one chapter at a time.</p>
-<div class="card">
-<h2>Collectibles</h2>
-<div>⭐ 🌙 ☀️ 🌹 ❄️ 🧭 ❤️ ✈️ 🎵 📷 🏆</div>
-</div>
 
-<div class="card">
-<h2>Next Unlock</h2>
-<div id="countdown"></div>
-</div>
+  <div id="desktop">
+    <div class="icon" onclick="openApp('Game 1')">Game 1</div>
+    <div class="icon" onclick="openApp('Game 2')">Game 2</div>
+    <div class="icon" onclick="openApp('Notes')">Notes</div>
+    <div class="icon" onclick="openApp('Terminal')">Terminal</div>
+  </div>
 
-<div id="months"></div>
+  <div id="window">
+    <div id="titlebar">
+      <span id="title">App</span>
+      <span id="close" onclick="closeWindow()">✕</span>
+    </div>
+    <div id="content"></div>
+  </div>
 
-<script>
-const months=[
-["2026-08-17","August","⭐","Trivia Game"],
-["2026-09-17","September","🌙","Memory Match"],
-["2026-10-17","October","☀️","Scavenger Hunt"],
-["2026-11-17","November","🌹","Timeline Sort"],
-["2026-12-17","December","❄️","Hidden Objects"],
-["2027-01-17","January","🧭","Choose Your Adventure"],
-["2027-02-17","February","❤️","Escape Room"],
-["2027-03-17","March","✈️","Dream Day Builder"],
-["2027-04-17","April","🎵","Spot the Difference"],
-["2027-05-17","May","📷","Guess the Memory"],
-["2027-06-17","June","🏆","Grand Finale"]
-];
+  <script>
+    const win = document.getElementById("window");
+    const title = document.getElementById("title");
+    const content = document.getElementById("content");
 
-const now=new Date();
-const container=document.getElementById("months");
+    function openApp(name){
+      win.style.display = "flex";
+      title.textContent = name;
 
-months.forEach((m,i)=>{
- const unlock=new Date(m[0]+"T00:00:00");
- const unlocked=now>=unlock;
+      if(name === "Game 1"){
+        content.innerHTML = `
+          <p>Simple text game placeholder.</p>
+          <button onclick="alert('Correcto ✔')">Submit</button>
+        `;
+      }
+      else if(name === "Game 2"){
+        content.innerHTML = `
+          <p>Another blank game slot.</p>
+          <button onclick="alert('Incorrecto ✖')">Try</button>
+        `;
+      }
+      else if(name === "Notes"){
+        content.innerHTML = `<textarea style="width:100%;height:200px;"></textarea>`;
+      }
+      else if(name === "Terminal"){
+        content.innerHTML = `<p>$ system ready_</p>`;
+      }
+      else {
+        content.innerHTML = `<p>Empty app.</p>`;
+      }
+    }
 
- const div=document.createElement("div");
- div.className="card "+(unlocked?"":"locked");
+    function closeWindow(){
+      win.style.display = "none";
+    }
 
- div.innerHTML=`
- <h2>${m[2]} ${m[1]} Chapter ${i+1}</h2>
- <p><strong>Status:</strong> ${unlocked?"Unlocked":"Locked until "+m[0]}</p>
+    // minimal drag
+    let isDragging = false;
+    let offsetX, offsetY;
 
- <h3>💌 Letter from Nico</h3>
- <p>[WRITE YOUR LETTER HERE]</p>
+    document.getElementById("titlebar").addEventListener("mousedown", (e)=>{
+      isDragging = true;
+      offsetX = e.clientX - win.offsetLeft;
+      offsetY = e.clientY - win.offsetTop;
+    });
 
- <h3>📸 Memory of the Month</h3>
- <div class="photo">Insert your photo here</div>
- <p>[WRITE WHY THIS MEMORY MEANS SO MUCH TO YOU]</p>
+    document.addEventListener("mousemove", (e)=>{
+      if(isDragging){
+        win.style.left = (e.clientX - offsetX) + "px";
+        win.style.top = (e.clientY - offsetY) + "px";
+      }
+    });
 
- <h3>🎮 ${m[3]}</h3>
- <div id="game${i}">${gameHTML(i)}</div>
- `;
- container.appendChild(div);
-});
+    document.addEventListener("mouseup", ()=>{
+      isDragging = false;
+    });
+  </script>
 
-function gameHTML(i){
-switch(i){
-case 0:return '<button onclick="alert(`Trivia placeholder`)">Start Trivia</button>';
-case 1:return '<button onclick="alert(`Memory Match placeholder`)">Play</button>';
-case 2:return '<button onclick="alert(`Scavenger Hunt placeholder`)">Begin Hunt</button>';
-case 3:return '<button onclick="alert(`Timeline Sort placeholder`)">Sort Timeline</button>';
-case 4:return '<button onclick="alert(`Hidden Objects placeholder`)">Search</button>';
-case 5:return '<button onclick="alert(`Adventure placeholder`)">Choose Path</button>';
-case 6:return '<button onclick="alert(`Escape Room placeholder`)">Enter</button>';
-case 7:return '<button onclick="alert(`Dream Day Builder placeholder`)">Build</button>';
-case 8:return '<button onclick="alert(`Spot the Difference placeholder`)">Find</button>';
-case 9:return '<button onclick="alert(`Guess the Memory placeholder`)">Guess</button>';
-case 10:return '<button onclick="document.getElementById(`capsule`).style.display=`block`">Open Finale</button><div id="capsule" style="display:none;margin-top:15px"><h4>Time Capsule</h4><p>Your final letter, slideshow, and video go here.</p></div>';
-}
-}
-
-const future=months.map(x=>new Date(x[0]+"T00:00:00")).find(d=>d>now);
-function updateCountdown(){
- if(!future){document.getElementById("countdown").innerText="All chapters unlocked ❤️";return;}
- const diff=future-now;
- const days=Math.floor(diff/86400000);
- const hrs=Math.floor((diff%86400000)/3600000);
- const mins=Math.floor((diff%3600000)/60000);
- document.getElementById("countdown").innerText=`${days} days, ${hrs} hours, ${mins} minutes`;
-}
-updateCountdown();
-</script>
 </body>
 </html>
