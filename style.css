@@ -1,10 +1,10 @@
 :root {
-  --bg: #2b2118;        /* deep brown background */
-  --window: #c9b79c;    /* beige panel */
-  --accent: #6b4f3a;    /* warm brown border */
-  --text: #1f1610;      /* dark text */
-  --muted: #3a2b22;
-  --shadow: #1a130e;
+  --bg: #a3b18a;        /* sage background */
+  --window: #f2efe7;    /* soft beige panels */
+  --accent: #5c6b4f;    /* deep sage border */
+  --text: #1f2421;      /* dark natural text */
+  --muted: #3d4a3f;
+  --shadow: #2f3a2f;
 }
 
 /* GLOBAL */
@@ -17,7 +17,7 @@ body {
   overflow: hidden;
 }
 
-/* DESKTOP GRID */
+/* DESKTOP */
 #desktop {
   display: grid;
   grid-template-columns: repeat(6, 120px);
@@ -38,16 +38,15 @@ body {
   justify-content: center;
   cursor: pointer;
   user-select: none;
-  text-align: center;
   font-size: 12px;
-  color: var(--text);
   transition: transform 0.1s ease, background 0.1s ease;
   box-shadow: 3px 3px 0 var(--shadow);
+  color: var(--text);
 }
 
 .icon:hover {
   transform: scale(1.05);
-  background: #d6c7af;
+  background: #e8e3d8;
 }
 
 /* WINDOW */
@@ -74,24 +73,24 @@ body {
   justify-content: space-between;
   padding: 0 10px;
   cursor: move;
-  font-size: 12px;
   user-select: none;
+  font-size: 12px;
 }
 
-/* CLOSE BUTTON */
+/* CLOSE */
 #close {
   cursor: pointer;
   color: var(--window);
   font-weight: bold;
 }
 
-/* CONTENT AREA */
+/* CONTENT */
 #content {
   flex: 1;
   padding: 12px;
   font-size: 13px;
-  color: var(--text);
   overflow: auto;
+  color: var(--text);
 }
 
 /* BUTTONS */
@@ -115,7 +114,7 @@ button:active {
 textarea {
   width: 100%;
   height: 200px;
-  background: #f2e6d5;
+  background: #ffffff;
   border: 1px solid var(--accent);
   color: var(--text);
   font-family: inherit;
@@ -123,7 +122,7 @@ textarea {
   resize: none;
 }
 
-/* OPTIONAL: subtle CRT / pixel feel */
+/* PIXEL FEEL */
 * {
   image-rendering: pixelated;
 }
