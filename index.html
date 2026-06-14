@@ -1,35 +1,135 @@
-<div id="timeline">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Timeline OS</title>
 
-  <!-- MONTH 1 -->
-  <section class="month">
-    <div class="month-header">
-      <h2>Month 1 — Awakening</h2>
-      <p>Welcome. Your system begins here.</p>
-    </div>
+  <link rel="stylesheet" href="style.css">
+</head>
 
-    <div class="month-body">
-      
-      <!-- LEFT: MEMORY -->
-      <div class="memory">
-        <h3>Memory Log</h3>
-        <ul>
-          <li>System initialized</li>
-          <li>First interaction recorded</li>
-        </ul>
+<body>
+
+  <!-- =========================
+       SCROLL TIMELINE SYSTEM
+  ========================== -->
+  <div id="timeline">
+
+    <!-- MONTH 1 -->
+    <section class="month">
+
+      <div class="month-header">
+        <h2>Month 1 — Awakening</h2>
+        <p>A quiet system initializes. Nothing is known yet.</p>
       </div>
 
-      <!-- RIGHT: GAMES -->
-      <div class="games">
-        <h3>Modules</h3>
+      <div class="month-body">
 
-        <div class="icon" onclick="openApp('Game 1')">Game 1</div>
-        <div class="icon" onclick="openApp('Game 2')">Game 2</div>
-        <div class="icon" onclick="openApp('Game 3')">Game 3</div>
-        <div class="icon" onclick="openApp('Game 4')">Game 4</div>
+        <!-- LEFT: MEMORY -->
+        <div class="memory">
+          <h3>Memory Log</h3>
+          <ul>
+            <li>System boot sequence started</li>
+            <li>User detected</li>
+            <li>Baseline world state created</li>
+          </ul>
+        </div>
+
+        <!-- RIGHT: GAMES -->
+        <div class="games">
+          <h3>Modules</h3>
+
+          <div class="icon" onclick="openApp('Game 1')">Game 1</div>
+          <div class="icon" onclick="openApp('Game 2')">Game 2</div>
+          <div class="icon" onclick="openApp('Game 3')">Game 3</div>
+          <div class="icon" onclick="openApp('Game 4')">Game 4</div>
+
+        </div>
 
       </div>
+    </section>
 
+
+    <!-- MONTH 2 -->
+    <section class="month">
+
+      <div class="month-header">
+        <h2>Month 2 — Drift</h2>
+        <p>Something subtle changes in the system behavior.</p>
+      </div>
+
+      <div class="month-body">
+
+        <div class="memory">
+          <h3>Memory Log</h3>
+          <ul>
+            <li>Irregular system latency detected</li>
+            <li>Unknown processes observed</li>
+          </ul>
+        </div>
+
+        <div class="games">
+          <h3>Modules</h3>
+
+          <div class="icon" onclick="openApp('Game 1')">Game 1</div>
+          <div class="icon" onclick="openApp('Game 2')">Game 2</div>
+          <div class="icon" onclick="openApp('Game 3')">Game 3</div>
+          <div class="icon" onclick="openApp('Game 4')">Game 4</div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- MONTH 3 -->
+    <section class="month">
+
+      <div class="month-header">
+        <h2>Month 3 — Fragmentation</h2>
+        <p>Memory begins to influence system structure.</p>
+      </div>
+
+      <div class="month-body">
+
+        <div class="memory">
+          <h3>Memory Log</h3>
+          <ul>
+            <li>Memory instability increasing</li>
+            <li>Game state leakage detected</li>
+          </ul>
+        </div>
+
+        <div class="games">
+          <h3>Modules</h3>
+
+          <div class="icon" onclick="openApp('Game 1')">Game 1</div>
+          <div class="icon" onclick="openApp('Game 2')">Game 2</div>
+          <div class="icon" onclick="openApp('Game 3')">Game 3</div>
+          <div class="icon" onclick="openApp('Game 4')">Game 4</div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+
+  <!-- =========================
+       FLOATING APP WINDOW
+  ========================== -->
+  <div id="window">
+    <div id="titlebar">
+      <span id="title">App</span>
+      <span id="close" onclick="closeWindow()">✕</span>
     </div>
-  </section>
+    <div id="content"></div>
+  </div>
 
-</div>
+
+  <!-- JS -->
+  <script src="script.js"></script>
+
+</body>
+</html>
