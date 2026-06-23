@@ -4,7 +4,7 @@ const content = document.getElementById("content");
 const FAKE_DATE = new Date("2027-08-18");
 const USE_FAKE_DATE = true;
 let heardleState = null;
-const DEBUG_SKIP_INTRO = true;
+const DEBUG_SKIP_INTRO = false;
 
 window.selectTile = selectTile;
 
