@@ -1,8 +1,8 @@
 const win = document.getElementById("window");
 const title = document.getElementById("title");
 const content = document.getElementById("content");
-const FAKE_DATE = new Date("2026-08-18");
-const USE_FAKE_DATE = true;
+const FAKE_DATE = new Date("2026-08-01");
+const USE_FAKE_DATE = false;
 let heardleState = null;
 const DEBUG_SKIP_INTRO = false;
 
@@ -668,7 +668,15 @@ function applyLockOverlays() {
 
     // fill date text
     if (dateSpan) {
-      dateSpan.textContent = unlockDate.toDateString();
+      const [y, m, d] = unlockStr.split("-");
+
+const displayDate = new Date(
+  Number(y),
+  Number(m) - 1,
+  Number(d)
+);
+
+dateSpan.textContent = displayDate.toDateString();
     }
   });
 }
