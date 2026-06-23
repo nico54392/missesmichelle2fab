@@ -286,7 +286,7 @@ body {
 /* LOCKED STATE */
 .month.locked .month-body,
 .month.locked .month-header {
-  filter: blur(3px);
+  filter: blur(10px);
   opacity: 0.5;
   pointer-events: none;
 }
