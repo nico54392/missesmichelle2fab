@@ -2,7 +2,7 @@ const win = document.getElementById("window");
 const title = document.getElementById("title");
 const content = document.getElementById("content");
 const FAKE_DATE = new Date("2026-08-01");
-const USE_FAKE_DATE = false;
+const USE_FAKE_DATE = true;
 let heardleState = null;
 const DEBUG_SKIP_INTRO = false;
 
