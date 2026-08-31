@@ -2,9 +2,9 @@ const win = document.getElementById("window");
 const title = document.getElementById("title");
 const content = document.getElementById("content");
 const FAKE_DATE = new Date("2027-08-01");
-const USE_FAKE_DATE = true;
+const USE_FAKE_DATE = false;
 let heardleState = null;
-const DEBUG_SKIP_INTRO = true;
+const DEBUG_SKIP_INTRO = false;
 
 window.selectTile = selectTile;
 
