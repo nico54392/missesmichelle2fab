@@ -29,7 +29,7 @@ const MONTH_GAMES = {
   "Game 2": {
     type: "fill",
     data: {
-      prompt: "🤔Fill in the blank✍️\n Nico's first ever text to Michelle: ___my brains out rn bt.",
+      prompt: "🤔Fill in the blank✍️<br> Nico's first ever text to Michelle: ___my brains out rn btw",
       answer: "shitting",
       inputId: "g2-input",
       resultId: "g2-result",
@@ -40,7 +40,7 @@ const MONTH_GAMES = {
   "Game 3": {
     type: "mcq",
     data: {
-      question: "🚨Quiz Alert🚨: On which day in 2023 was our first hookup in the Pierson theater?",
+      question: "🚨Quiz Alert🚨<br> On which day in 2023 was our first hookup in the Pierson theater?",
       resultId: "g3-result",
       options: [
         { text: " Jan 31", correct: true },
