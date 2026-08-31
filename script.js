@@ -29,23 +29,23 @@ const MONTH_GAMES = {
   "Game 2": {
     type: "fill",
     data: {
-      prompt: "The night we ___ under the stars.",
-      answer: "slept",
+      prompt: "🤔Fill in the blank✍️\n Nico's first ever text to Michelle: ___my brains out rn bt.",
+      answer: "shitting",
       inputId: "g2-input",
       resultId: "g2-result",
-      successText: "✔ Checked"
+      successText: "✔ Damn nothing has changed I guess LMAOO"
     }
   },
 
   "Game 3": {
     type: "mcq",
     data: {
-      question: "Which moment was real?",
+      question: "🚨Quiz Alert🚨: On which day in 2023 was our first hookup in the Pierson theater?",
       resultId: "g3-result",
       options: [
-        { text: "Option 1", correct: false },
-        { text: "Option 2", correct: true },
-        { text: "Option 3", correct: false }
+        { text: " Jan 31", correct: true },
+        { text: "Feb 2", correct: false },
+        { text: "Jan 29", correct: false }
       ]
     }
   },
